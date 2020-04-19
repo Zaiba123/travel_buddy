@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import {IndexPage, CurrencyExchangePage, ContactUsPage, AboutPage, EventPage} from './pages';
+import {IndexPage, CurrencyExchangePage, ContactUsPage, AboutPage, HubPage} from './pages';
 import {geolocated} from "react-geolocated";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {DefaultLayout} from './layouts';
+
 
 
 class App extends React.Component {
@@ -25,11 +26,11 @@ class App extends React.Component {
             />
             <Route
               path='/about-us' strict
-              render={ props => <AboutPage props={props} /> }
+              render={ props => <AboutPage /> }
             />
-            <Route
-              path='/event/:id' strict
-              render={ props => <EventPage {...props} /> }
+             <Route
+              path='/hub-page' strict
+              render={ props => <HubPage /> }
             />
             <Route
               path='/' strict

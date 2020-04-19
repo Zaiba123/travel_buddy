@@ -17,6 +17,7 @@ export class DefaultLayout extends Component {
             <Nav.Link as={Link} to="/currency-exchange">Currency Exchange</Nav.Link>
             <Nav.Link as={Link} to="/about-us">About Us</Nav.Link>
             <Nav.Link as={Link} to="/contact-us">Contact Us</Nav.Link>
+            <Nav.Link as={Link} to="/hub-page">Hub Page</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

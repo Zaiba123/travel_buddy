@@ -1,5 +1,7 @@
-export * from './home';
-export * from './currencyExchange';
-export * from './about';
-export * from './contactUs';
-export * from './event'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+export { IndexPage } from './home';
+export { CurrencyExchangePage } from './currencyExchange';
+export { AboutPage } from './about';
+export { ContactUsPage } from './contactUs';
+export { HubPage } from './hubpage';
