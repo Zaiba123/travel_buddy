@@ -5,7 +5,7 @@ export class Title extends Component {
         return (
             <div>
                 <h1 className="title-container__title">Weather Finder</h1>
-                <p className="title-container__subtitle">Find out temperature, condition</p>
+                <p className="title-container__subtitle">Find out temperature and condition...</p>
             </div>
         )
     }

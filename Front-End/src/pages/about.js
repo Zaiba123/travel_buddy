@@ -10,22 +10,28 @@ export class AboutPage extends Component {
       // <h2>About Us</h2>
       <div className="aboutus">
       <h1 className="name">Adrian Barros</h1>
-      <p>Senior at Hunter College graduating 2020</p>
+      <p className="nameb">Senior at Hunter College graduating 2020</p>
+      <p id="p1">
       <a href={"https://github.com/Adrianbarros"} class="namel">Adrian's Github</a>
+      </p>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
       <h1 className="name">Zaiba Iqbal</h1>
-      <p>Senior at Hunter College graduating 2020</p>
+      <p className="nameb">Senior at Hunter College graduating 2020</p>
+      <p id="p2">
       <a href={"https://github.com/Zaiba123"} class="namel">Zaiba's Github</a>
+      </p>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
       <h1 className="name">Umar</h1>
-      <p>Senior at Hunter College graduating 2020</p>
+      <p className="nameb">Senior at Hunter College graduating 2020</p>
+      <p id="p3">
       <a href={"https://github.com/umarkhan207322405"} class="namel">Umar's Github</a>
+      </p>
     </div>
     )
   }
