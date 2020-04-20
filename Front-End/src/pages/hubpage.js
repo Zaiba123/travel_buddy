@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
 //import "../components/Weather.css"
-//const API_KEY = ;
+const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0";
 
 
 const ContentItem = ({ item }) => (
@@ -17,19 +17,20 @@ const ContentItem = ({ item }) => (
     <Col xs="12" sm="6" md="4">
         <Container style={{ marginTop: 10 }}>
             <div class="ui raised very padded text container segment">
-                <Card>
-                    <CardBody>
+                <Card className='card-c'>
+                    <CardBody className="card-b">
 
-                        <CardTitle>
+                        <CardTitle className="card-t">
                             {/* {<CardImg className="aa" top width="100%" src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + item.photos[0].photo_reference + "&key="}></CardImg>} */}
                             {item.name}
                         </CardTitle>
 
-                        <CardText>
+                        <CardText className="card-n">
                             {item.types[0]}
                         </CardText>
                     </CardBody>
                 </Card>
+                
             </div>
         </Container>
     </Col>

@@ -229,3 +229,32 @@ a:hover + .box,.box:hover{
   position: relative;
   z-index: 100;
 }
+.card{
+  /* height: 100vh; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-t{
+  font-size: 20px;
+  color: #2c3e5a;
+}
+.card-n{
+  font-size:15px;
+  
+}
+
+.card-b{
+  position: relative;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.card-c{
+  position: relative;
+  overflow: hidden;
+}
+.card-deck{
+  bottom-margin: 10px;
+}
