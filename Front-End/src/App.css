@@ -89,6 +89,8 @@ ul {
 }
 .form-control {
   width: 100%;
+  font-size: 1.5rem;
+  height: 100%;
 }
 .md-place {
   color: #4063aa;
@@ -126,7 +128,7 @@ ul {
 .name{
   color: rgb(109, 185, 199);
  
-  text-shadow: 0 0 20px rgb(51, 167, 175), 1px 1px 20px rgb(34, 160, 177), 2px 2px 20px rgb(43, 225, 231), -1px -1px 20px orange, -2px -2px 20px orange;
+  text-shadow: 0 0 20px rgb(51, 167, 175), 1px 1px 20px rgb(34, 160, 177), 2px 2px 20px rgb(43, 225, 231), -1px -1px 20px rgb(26, 125, 165), -2px -2px 20px orange;
   /* position: absolute;
   left: 50%; */
 }
@@ -199,10 +201,13 @@ bg-light {
   letter-spacing: 1px;
   font-weight: 200;
 }
+.inputt{
+  color: #f1f1f1!important;
+}
 input[type="text"] {
   background-color: transparent;
   border: 0;
-  border-bottom: solid 1px #4ec8ec;
+  border-bottom: solid 1px #b5d9e4;
   width: 30%;
   padding-bottom: 4px;
   color: #fff !important;
@@ -211,6 +216,7 @@ input[type="text"] {
   margin-bottom: 30px;
   margin-right: 20px;
   font-size: 20px;
+  color: #61dafb;
 }
 .form-container {
   background-color: #2c3e50;
@@ -254,7 +260,21 @@ a:hover + .box,.box:hover{
 .card-c{
   position: relative;
   overflow: hidden;
+  bottom-margin: 10px;
+
 }
 .card-deck{
   bottom-margin: 10px;
+}
+.forml{
+  font-size: 20px;
+}
+.css-1wa3eu0-placeholder{
+  font-size: 20x;
+}
+.navbar-brand{
+  color: #2c3e5;
+ 
+  text-shadow: 0 0 20px rgb(51, 167, 175), 1px 1px 20px rgb(34, 160, 177), 2px 2px 20px rgb(43, 225, 231), -1px -1px 20px rgb(26, 125, 165), -2px -2px 20px rgb(47, 106, 196);
+  
 }
