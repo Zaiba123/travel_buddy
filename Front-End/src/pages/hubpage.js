@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
 //import "../components/Weather.css"
-//const API_KEY = "";
+//const API_KEY = ;
 
 
 const ContentItem = ({ item }) => (
@@ -99,19 +99,20 @@ export class HubPage extends Component {
     render() {
         return (
             <div>
-                <Title />
-                <Form getWeather={this.getWeather} />
-                <Weather
-                    temperature={this.state.temperature}
+               <div className="col-xs-5 title-container">
+                  <Title />
+                </div>
+                <div className="col-xs-7 form-container">
+                  <Form getWeather={this.getWeather} />
+                  <Weather 
+                    temperature={this.state.temperature} 
+                    humidity={this.state.humidity}
                     city={this.state.city}
                     country={this.state.country}
-                    humidity={this.state.humidity}
                     description={this.state.description}
                     error={this.state.error}
-
-
-
-                />
+                  />
+                </div>
                 <Container style={{ marginTop: 40 }}>
                     <div >
                         <Row >
