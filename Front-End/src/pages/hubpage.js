@@ -3,7 +3,7 @@ import Title from "../components/Title";
 import Form from "../components/Form";
 import Weather from "../components/Weather";
 //import "../components/Weather.css"
-const API_KEY= "dd018e7b473f40c8ef87d5f6de0156d0";
+//const API_KEY= "";
 
 export class HubPage extends Component {
     state = {
@@ -55,19 +55,20 @@ export class HubPage extends Component {
     render() {
         return (
             <div>
-                <Title />
-                <Form getWeather={this.getWeather}/>
-                <Weather 
-                temperature={this.state.temperature}
-                city={this.state.city}
-                country={this.state.country}
-                humidity={this.state.humidity}
-                description={this.state.description}
-                error={this.state.error}
-                
-                
-                
-                />
+                <div className="col-xs-5 title-container">
+                  <Title />
+                </div>
+                <div className="col-xs-7 form-container">
+                  <Form getWeather={this.getWeather} />
+                  <Weather 
+                    temperature={this.state.temperature} 
+                    humidity={this.state.humidity}
+                    city={this.state.city}
+                    country={this.state.country}
+                    description={this.state.description}
+                    error={this.state.error}
+                  />
+                </div>
             </div>
         )
     }

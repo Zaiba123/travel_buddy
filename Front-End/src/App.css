@@ -111,14 +111,8 @@ ul {
   margin: 0 20px;
 }
 
-.navbar-collapse{
-  background-color: rgb(123, 194, 216);
-}
-.navbar-brand{
-  background-color: rgb(123, 194, 216);
-}
-.mr-auto{
-  background-color: plum;
+.bg-light {
+  background-color: brown!important;
 }
 
 .aboutus{
@@ -142,4 +136,61 @@ ul {
 } */
 .namel{
   color:darkblue;
+}
+.navbar-collapse-collapse{
+  color: aquamarine;
+}
+
+/* .mr-auto{
+  background-color: brown;
+} */
+bg-light {
+  color: #289fb4!important;
+}
+.title-container__title {
+  font-size: 50px;
+  letter-spacing: 2px;
+  line-height: 1.3;
+  font-family: 'Roboto Slab', serif;
+}
+.title-container__subtitle {
+  font-style: italic;
+  font-weight: 100;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  font-family: "Merriweather", serif;
+}
+.form-container {
+  background-color: #2c3e50;
+  height: 90vh;
+  padding-top: 100px;
+  padding-left: 50px;
+}
+
+.weather__info {
+  width: 60%;
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+.weather__key {
+  color: #f16051;
+  border-bottom: solid 2px rgba(255,255,255,0.06);
+  padding: 20px 0 20px 0;
+  font-weight: 400;
+}
+.weather__key:last-child {
+  border: 0;
+}
+
+.weather__value {
+  color: #fff;
+  font-weight: 200;
+}
+
+.weather__error {
+  color: #f16051;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 200;
 }
