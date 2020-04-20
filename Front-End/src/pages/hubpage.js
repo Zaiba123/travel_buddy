@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
 //import "../components/Weather.css"
-const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0";
+//const API_KEY = "";
 
 
 const ContentItem = ({ item }) => (
