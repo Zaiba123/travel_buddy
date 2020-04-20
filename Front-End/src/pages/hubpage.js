@@ -7,32 +7,39 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {
     Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
+import { Container } from 'semantic-ui-react'
 //import "../components/Weather.css"
-//const API_KEY = "";
+const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0";
 
 
 const ContentItem = ({ item }) => (
 
-
-
     <Col xs="12" sm="6" md="4">
-        <Card>
-            <CardBody>
-                <CardTitle>
-                    {/* {<CardImg className="aa" top width="100%" src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + item.photos[0].photo_reference + "&key="}></CardImg>} */}
-                    {item.name}
-                </CardTitle>
-                <CardText>
-                    {item.types[0]}
-                </CardText>
-            </CardBody>
-        </Card>
+        <Container style={{ marginTop: 10 }}>
+            <div class="ui raised very padded text container segment">
+                <Card>
+                    <CardBody>
+
+                        <CardTitle>
+                            {/* {<CardImg className="aa" top width="100%" src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + item.photos[0].photo_reference + "&key="}></CardImg>} */}
+                            {item.name}
+                        </CardTitle>
+
+                        <CardText>
+                            {item.types[0]}
+                        </CardText>
+                    </CardBody>
+                </Card>
+            </div>
+        </Container>
     </Col>
 
 )
 
+
 export class HubPage extends Component {
     state = {
+        //list of items in the locations cards
         'items': [],
         //inital state of object
         temperature: undefined,
@@ -44,7 +51,7 @@ export class HubPage extends Component {
     }
 
     //Calling the GooglePlaces function in the backend
-    componentDidMount() {
+    getPlaces = async () => {
         fetch('http://localhost:9000/get-places')
             .then(res => res.json())
             .then(res => this.setState({ 'items': res }));
@@ -71,6 +78,7 @@ export class HubPage extends Component {
                 description: data.weather[0].description,
                 error: undefined
             })
+            this.getPlaces()
         }
         else {
             this.setState({
@@ -104,15 +112,19 @@ export class HubPage extends Component {
 
 
                 />
-                <Row>
-                    {this.state.items.map(function (item, index) {
-                        return (
-                            <ContentItem item={item} key={index} />
+                <Container style={{ marginTop: 40 }}>
+                    <div >
+                        <Row >
+                            {this.state.items.map(function (item, index) {
+                                return (
+                                    <ContentItem item={item} key={index} />
 
-                        )
-                    })
-                    }
-                </Row>);
+                                )
+                            })
+                            }
+                        </Row>
+                    </div>
+                </Container>
             </div>
         )
     }
