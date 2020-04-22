@@ -27,7 +27,7 @@ export class AboutPage extends Component {
       <br></br>
       <br></br>
       <br></br>
-      <h1 className="name">Umar</h1>
+      <h1 className="name">Umar Khan</h1>
       <p className="nameb">Senior at Hunter College graduating 2020</p>
       <p id="p3">
       <a href={"https://github.com/umarkhan207322405"} class="namel">Umar's Github</a>
