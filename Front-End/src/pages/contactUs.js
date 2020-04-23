@@ -52,12 +52,13 @@ export class ContactUsPage extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => this.setState({
-          latitude: position.coords.latitude,
-          longitude:position.coords.longitude
+          latitude: position.coords.latitude.toFixed(3),
+          longitude:position.coords.longitude.toFixed(0)
         }),
         err => console.log(err)
       );
     }
+
   }
   
   getWeather =  async (e)  => {
