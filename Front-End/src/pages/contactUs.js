@@ -3,10 +3,24 @@ import Title from "../components/Title";
 import Formtwo from "../components/Form";
 import Weathertwo from "../components/Weathertwo";
 
-const API_KEY ="dd018e7b473f40c8ef87d5f6de0156d0"
+const API_KEY =""
 
 export class ContactUsPage extends Component {
-  getWeather =  async ()  => {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+  componentDidMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function(position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+      });
+    }
+  }
+  getWeather =  async (e)  => {
+    e.preventDefault();
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=60.99&lon=30.9&appid=${API_KEY}`);
     const data = await api_call.json();
     console.log(data);
