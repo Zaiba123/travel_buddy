@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Title from "../components/Title";
+import Titletwo from "../components/Titletwo";
 import Formtwo from "../components/Formtwo";
 import Weathertwo from "../components/Weathertwo";
 
@@ -52,19 +52,26 @@ export class ContactUsPage extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => this.setState({
-          latitude: position.coords.latitude.toFixed(3),
-          longitude:position.coords.longitude.toFixed(0)
+
+          latitude: position.coords.latitude,
+          longitude:position.coords.longitude
+          // latitude: position.coords.latitude.toFixed(3),
+          // longitude:position.coords.longitude.toFixed(0)
+
         }),
+        
         err => console.log(err)
       );
     }
+
 
   }
   
   getWeather =  async (e)  => {
     e.preventDefault();
-     
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.latitude}&lon=${this.state.longitude}.9&appid=${API_KEY}&units=imperial`);
+    // console.log(this.state.latitude);
+    // console.log(this.state.longitude);
+    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.latitude}&lon=${this.state.longitude}&appid=${API_KEY}&units=imperial`);
     const data = await api_call.json();
     console.log(data);
   }
@@ -76,10 +83,14 @@ export class ContactUsPage extends Component {
   render() {
     return (
       <h2>
-        <Title />
+        <div className="col-xs-5 title-container">
+                  <Titletwo />
+                </div>
+                <div className="col-xs-7 form-container">
         <Formtwo getWeather={this.getWeather}/>
-        <Weathertwo />
-        <button onClick ={this.position}>W</button>
+        {/* <Weathertwo /> */}
+        {/* <button onClick ={this.position}>W</button> */}
+        </div>
       </h2>
     )
   }
