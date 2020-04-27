@@ -86,19 +86,19 @@ export class CurrencyExchangePage extends Component {
     return (
       <div className='container' style={{marginTop: '10px'}}>
         <Form.Group>
-          <Form.Label>From</Form.Label>
+          <Form.Label className="forml">From</Form.Label>
           <Select options={this.state.symbols} name='from' onChange={event => this.onFromChange(event)} />
         </Form.Group>
         <Form.Group>
-          <Form.Label>To</Form.Label>
+          <Form.Label className="forml">To</Form.Label>
           <Select options={this.state.symbols} name='to' onChange={event => this.onToChange(event)} />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Enter the amount to exchange</Form.Label>
+          <Form.Label className="forml">Enter the amount to exchange</Form.Label>
           <Form.Control placeholder='Enter amount' type='number' name='amount' onChange={event => this.onAmountChange(event)} />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Exchanged Amount: {this.state.exchange && !isNaN(this.state.exchange) ? this.state.exchange : 0}</Form.Label>
+          <Form.Label className="forml">Exchanged Amount: {this.state.exchange && !isNaN(this.state.exchange) ? this.state.exchange : 0}</Form.Label>
         </Form.Group>
       </div>
     )

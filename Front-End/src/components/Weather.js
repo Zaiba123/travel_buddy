@@ -3,30 +3,30 @@ import React, { Component } from 'react'
 export class Weather extends Component {
     render() {
         return (
-            <div>
+            <div className="weather__info">
                 {
                     //all conditions have to be true for this to happen
-                    this.props.city && this.props.country  &&<p>Location: 
+                    this.props.city && this.props.country  &&<p className="weather__key">Location: 
                     <span>{this.props.city} , {this.props.country}</span>
                     </p>
                }
                 { 
-                    this.props.temperature && <p>Temperature: 
+                    this.props.temperature && <p className="weather__key">Temperature: 
                     <span>{this.props.temperature}</span>
                     </p> 
                 }
                 { 
-                    this.props.humdity && <p>Humdity: 
+                    this.props.humdity && <p className="weather__key">Humdity: 
                     <span>{this.props.humdity}</span>
                     </p> 
                 }
                 { 
-                    this.props.description && <p>Conditions: 
+                    this.props.description && <p className="weather__key">Conditions: 
                     <span>{this.props.description}</span>
                     </p>
                 }
                 { 
-                    this.props.error && <p>
+                    this.props.error && <p className="weather__error">
                     <span>{this.props.error}</span>
                     </p>
                 }
