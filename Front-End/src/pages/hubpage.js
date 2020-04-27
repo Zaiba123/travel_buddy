@@ -9,11 +9,8 @@ import {
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
 
+//import "../components/Weather.css"
 import Axios from 'axios';
-//import "../components/Weather.css"
-
-
-//import "../components/Weather.css"
 const API_KEY = "";
 
 
@@ -77,8 +74,6 @@ export class HubPage extends Component {
                 this.setState({ 'items': response })
             })
 
-
-
     }
 
 
@@ -136,14 +131,7 @@ export class HubPage extends Component {
                         description={this.state.description}
                         error={this.state.error}
 
-
-
-
                     />
-
-
-
-                  />
                 </div>
 
                 <Container style={{ marginTop: 40 }}>
@@ -159,8 +147,6 @@ export class HubPage extends Component {
                         </Row>
                     </div>
                 </Container>
-
-
 
 
             </div>
