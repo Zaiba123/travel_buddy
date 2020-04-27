@@ -83,16 +83,20 @@ def getLatestRates():
     return response.text
 
 
-@app.route("/get-places")
+@app.route("/get-places", methods=['GET'])
 def getplaces():
     gmaps = googlemaps.Client(key=GOOGLE_PLACES_KEY)
-    weather = 'sunny'
-    temperature = 60
-    if temperature > 75 and weather == 'sunny':
+    weather = request.args.get("status")
+    temperature = float(request.args.get("temperature"))
+    print(temperature)
+
+    if weather == 'thunderstorm' or 'snow' or 'shower rain':
+        rec = 'bar||restaurant||cafe'
+    elif temperature > 75 and weather == 'clear sky':
         rec = 'aquarium||night_club||park||zoo'
-    elif temperature < 75 and temperature >= 65 and weather == 'sunny':
+    elif temperature < 75 and temperature >= 65 and weather == 'clear sky':
         rec = 'park||amusement_park||bowling_alley'
-    elif temperature < 65 and temperature >= 45 and weather == 'sunny' or 'cloudy':
+    elif temperature < 65 and temperature >= 45 and weather == 'clear sky' or 'few clouds' or 'scattered clouds':
         rec = 'cafe||restaurant||bowling_alley||book_store'
     else:
         rec = 'bar||restaurant||museum'
@@ -101,6 +105,13 @@ def getplaces():
     #data = json.dumps(places_result)
     data = json.dumps(places_result['results'])
     return data
+
+
+@app.route("/set-places", methods=['POST'])
+def setPlaces():
+    temp = request.json
+    print(temp)
+    return temp
 
 
 if __name__ == '__main__':

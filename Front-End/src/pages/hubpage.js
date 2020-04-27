@@ -8,8 +8,11 @@ import {
     Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
+
 //import "../components/Weather.css"
+import Axios from 'axios';
 const API_KEY = "";
+
 
 
 const ContentItem = ({ item }) => (
@@ -17,6 +20,7 @@ const ContentItem = ({ item }) => (
     <Col xs="12" sm="6" md="4">
         <Container style={{ marginTop: 10 }}>
             <div class="ui raised very padded text container segment">
+
                 <Card className='card-c'>
                     <CardBody className="card-b">
 
@@ -34,6 +38,7 @@ const ContentItem = ({ item }) => (
                 <br></br>
                 <br></br>
                 <br></br>
+
             </div>
         </Container>
     </Col>
@@ -46,6 +51,7 @@ export class HubPage extends Component {
         //list of items in the locations cards
         'items': [],
         //inital state of object
+        // temp: 60,
         temperature: undefined,
         city: undefined,
         country: undefined,
@@ -54,11 +60,21 @@ export class HubPage extends Component {
         error: undefined
     }
 
-    //Calling the GooglePlaces function in the backend
-    getPlaces = async () => {
-        fetch('http://localhost:9000/get-places')
-            .then(res => res.json())
-            .then(res => this.setState({ 'items': res }));
+    /*  
+    Calling the GooglePlaces function in the backend
+    The function requirements:
+    -temperature
+    -weather condition
+    -location
+    The funtion will return a json object
+    */
+    getPlaces = () => {
+        Axios.get(`http://localhost:9000/get-places?temperature=${this.state.temperature}&status=${this.state.description}`)
+            .then(res => {
+                const response = res.data
+                this.setState({ 'items': response })
+            })
+
     }
 
 
@@ -115,8 +131,10 @@ export class HubPage extends Component {
                     country={this.state.country}
                     description={this.state.description}
                     error={this.state.error}
+
                   />
                 </div>
+
                 <Container style={{ marginTop: 40 }}>
                     <div >
                         <Row >
@@ -130,6 +148,8 @@ export class HubPage extends Component {
                         </Row>
                     </div>
                 </Container>
+
+
             </div>
         )
     }
