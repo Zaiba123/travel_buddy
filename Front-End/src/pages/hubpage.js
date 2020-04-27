@@ -8,8 +8,9 @@ import {
     Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
+import Axios from 'axios';
 //import "../components/Weather.css"
-//const API_KEY = "";
+const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0";
 
 
 const ContentItem = ({ item }) => (
@@ -24,10 +25,13 @@ const ContentItem = ({ item }) => (
                             {/* {<CardImg className="aa" top width="100%" src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + item.photos[0].photo_reference + "&key="}></CardImg>} */}
                             {item.name}
                         </CardTitle>
-
                         <CardText>
                             {item.types[0]}
                         </CardText>
+                        <CardText>
+                            {item.vicinity}
+                        </CardText>
+
                     </CardBody>
                 </Card>
             </div>
@@ -42,6 +46,7 @@ export class HubPage extends Component {
         //list of items in the locations cards
         'items': [],
         //inital state of object
+        // temp: 60,
         temperature: undefined,
         city: undefined,
         country: undefined,
@@ -49,12 +54,20 @@ export class HubPage extends Component {
         description: undefined,
         error: undefined
     }
-
-    //Calling the GooglePlaces function in the backend
-    getPlaces = async () => {
-        fetch('http://localhost:9000/get-places')
-            .then(res => res.json())
-            .then(res => this.setState({ 'items': res }));
+    /*  
+    Calling the GooglePlaces function in the backend
+    The function requirements:
+    -temperature
+    -weather condition
+    -location
+    The funtion will return a json object
+    */
+    getPlaces = () => {
+        Axios.get(`http://localhost:9000/get-places?temperature=${this.state.temperature}&status=${this.state.description}`)
+            .then(res => {
+                const response = res.data
+                this.setState({ 'items': response })
+            })
     }
 
 
@@ -112,6 +125,8 @@ export class HubPage extends Component {
 
 
                 />
+
+
                 <Container style={{ marginTop: 40 }}>
                     <div >
                         <Row >
@@ -125,6 +140,7 @@ export class HubPage extends Component {
                         </Row>
                     </div>
                 </Container>
+
             </div>
         )
     }
