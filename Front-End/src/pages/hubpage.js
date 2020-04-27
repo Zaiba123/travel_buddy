@@ -8,9 +8,11 @@ import {
     Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
-import Axios from 'axios';
+
 //import "../components/Weather.css"
-const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0";
+import Axios from 'axios';
+const API_KEY = "";
+
 
 
 const ContentItem = ({ item }) => (
@@ -18,22 +20,25 @@ const ContentItem = ({ item }) => (
     <Col xs="12" sm="6" md="4">
         <Container style={{ marginTop: 10 }}>
             <div class="ui raised very padded text container segment">
-                <Card>
-                    <CardBody>
 
-                        <CardTitle>
+                <Card className='card-c'>
+                    <CardBody className="card-b">
+
+                        <CardTitle className="card-t">
                             {/* {<CardImg className="aa" top width="100%" src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + item.photos[0].photo_reference + "&key="}></CardImg>} */}
                             {item.name}
                         </CardTitle>
-                        <CardText>
+
+                        <CardText className="card-n">
                             {item.types[0]}
                         </CardText>
-                        <CardText>
-                            {item.vicinity}
-                        </CardText>
-
                     </CardBody>
                 </Card>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+
             </div>
         </Container>
     </Col>
@@ -54,6 +59,7 @@ export class HubPage extends Component {
         description: undefined,
         error: undefined
     }
+
     /*  
     Calling the GooglePlaces function in the backend
     The function requirements:
@@ -68,6 +74,7 @@ export class HubPage extends Component {
                 const response = res.data
                 this.setState({ 'items': response })
             })
+
     }
 
 
@@ -112,20 +119,21 @@ export class HubPage extends Component {
     render() {
         return (
             <div>
-                <Title />
-                <Form getWeather={this.getWeather} />
-                <Weather
-                    temperature={this.state.temperature}
+               <div className="col-xs-5 title-container">
+                  <Title />
+                </div>
+                <div className="col-xs-7 form-container">
+                  <Form getWeather={this.getWeather} />
+                  <Weather 
+                    temperature={this.state.temperature} 
+                    humidity={this.state.humidity}
                     city={this.state.city}
                     country={this.state.country}
-                    humidity={this.state.humidity}
                     description={this.state.description}
                     error={this.state.error}
 
-
-
-                />
-
+                  />
+                </div>
 
                 <Container style={{ marginTop: 40 }}>
                     <div >
@@ -140,6 +148,7 @@ export class HubPage extends Component {
                         </Row>
                     </div>
                 </Container>
+
 
             </div>
         )
