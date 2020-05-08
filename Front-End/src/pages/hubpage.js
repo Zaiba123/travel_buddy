@@ -11,7 +11,7 @@ import { Container } from 'semantic-ui-react'
 
 //import "../components/Weather.css"
 import Axios from 'axios';
-const API_KEY = "";
+const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0";
 
 
 
@@ -56,7 +56,25 @@ export class HubPage extends Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: undefined
+        error: undefined,
+
+        latitude: undefined,
+        longitude: undefined
+    }
+
+    componentDidMount() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                position => this.setState({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                }),
+
+                err => console.log(err)
+            );
+        }
+
+
     }
 
     /*  
@@ -73,6 +91,7 @@ export class HubPage extends Component {
                 const response = res.data
                 this.setState({ 'items': response })
             })
+            .then(console.log(this.state.latitude))
 
     }
 
@@ -83,36 +102,36 @@ export class HubPage extends Component {
         e.preventDefault();
         const city = e.target.elements.city.value;
         const country = e.target.elements.country.value;
-        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=imperial`);
-
+        //const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=imperial`);
+        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&appid=${API_KEY}`);
         //convert response to json format
         const data = await api_call.json();
-        if (city && country) {//only if these fields are filled then you return these
-            console.log(data);
-            this.setState({
-                temperature: data.main.temp,
-                city: data.name,
-                country: data.sys.country,
-                humidity: data.main.humidity,
-                description: data.weather[0].description,
-                error: undefined
-            })
-            this.getPlaces()
-        }
-        else {
-            this.setState({
-                //describe state
-                //inital state of object
-                temperature: undefined,
-                city: undefined,
-                country: undefined,
-                humidity: undefined,
-                description: undefined,
-                error: "Please enter values"
+        // if (city && country) {//only if these fields are filled then you return these
+        // console.log(data);
+        this.setState({
+            temperature: data.main.temp,
+            //city: data.name,
+            //country: data.sys.country,
+            //humidity: data.main.humidity,
+            description: data.weather[0].description,
+            error: undefined
+        })
+        this.getPlaces()
+        //}
+        // else {
+        //     this.setState({
+        //         //describe state
+        //         //inital state of object
+        //         temperature: undefined,
+        //         city: undefined,
+        //         country: undefined,
+        //         humidity: undefined,
+        //         description: undefined,
+        //         error: "Please enter values"
 
 
-            })
-        }
+        //     })
+        // }
 
     }
     render() {

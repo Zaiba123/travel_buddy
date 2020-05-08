@@ -1,32 +1,32 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Titletwo from "../components/Titletwo";
 import Formtwo from "../components/Formtwo";
 import Weathertwo from "../components/Weathertwo";
 
-const API_KEY =""
+const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0"
 
 export class ContactUsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      latitude:0,
-      longitude:0,
+      latitude: 0,
+      longitude: 0,
     }
   }
-//   componentDidMount() {
-//     position = async () => {
-//     await navigator.geolocation.getCurrentPosition(
-//       position => this.setState({
-//         latitude:position.coords.latitude,
-//         longitude:position.coords.longitude
-//       }),
-//       err => console.log(err)
-//     );
-//     console.log(this.state.latitude);
-//   }
-// }
+  //   componentDidMount() {
+  //     position = async () => {
+  //     await navigator.geolocation.getCurrentPosition(
+  //       position => this.setState({
+  //         latitude:position.coords.latitude,
+  //         longitude:position.coords.longitude
+  //       }),
+  //       err => console.log(err)
+  //     );
+  //     console.log(this.state.latitude);
+  //   }
+  // }
 
-//trial 2 
+  //trial 2 
   // componentDidMount() {
   //   if (navigator.geolocation) {
   //     navigator.geolocation.watchPosition(function(position) {
@@ -54,20 +54,20 @@ export class ContactUsPage extends Component {
         position => this.setState({
 
           latitude: position.coords.latitude,
-          longitude:position.coords.longitude
+          longitude: position.coords.longitude
           // latitude: position.coords.latitude.toFixed(3),
           // longitude:position.coords.longitude.toFixed(0)
 
         }),
-        
+
         err => console.log(err)
       );
     }
 
 
   }
-  
-  getWeather =  async (e)  => {
+
+  getWeather = async (e) => {
     e.preventDefault();
     // console.log(this.state.latitude);
     // console.log(this.state.longitude);
@@ -75,21 +75,21 @@ export class ContactUsPage extends Component {
     const data = await api_call.json();
     console.log(data);
   }
-  
+
   // state = {
-  
+
   // };
-  
+
   render() {
     return (
       <h2>
         <div className="col-xs-5 title-container">
-                  <Titletwo />
-                </div>
-                <div className="col-xs-7 form-container">
-        <Formtwo getWeather={this.getWeather}/>
-        {/* <Weathertwo /> */}
-        {/* <button onClick ={this.position}>W</button> */}
+          <Titletwo />
+        </div>
+        <div className="col-xs-7 form-container">
+          <Formtwo getWeather={this.getWeather} />
+          {/* <Weathertwo /> */}
+          {/* <button onClick ={this.position}>W</button> */}
         </div>
       </h2>
     )
