@@ -6,7 +6,7 @@ export class Formtwo extends Component {
            <form onSubmit={this.props.getWeather}>
                <input className="inputt" type="text" name="latitude" placeholder="Lat..."></input>
                <input className="inputt" type="text" name="longitude" placeholder="Lon..."></input>
-               <button>Get Weathers</button>
+               <button>Get Weather</button>
            </form>
         )
     }
