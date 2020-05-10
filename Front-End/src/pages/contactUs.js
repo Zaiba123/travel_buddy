@@ -125,9 +125,6 @@ export class ContactUsPage extends Component {
   }
   
   
-  // state = {
-  
-  // };
   
   render() {
     console.log(this.state.degrees);
