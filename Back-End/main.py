@@ -88,6 +88,10 @@ def getplaces():
     gmaps = googlemaps.Client(key=GOOGLE_PLACES_KEY)
     weather = request.args.get("status")
     temperature = float(request.args.get("temperature"))
+    latitude = request.args.get("lat")
+    longitude = request.args.get("lon")
+    cords = latitude+' , '+longitude
+
     print(temperature)
 
     if weather == 'thunderstorm' or 'snow' or 'shower rain':
@@ -101,7 +105,7 @@ def getplaces():
     else:
         rec = 'bar||restaurant||museum'
     places_result = gmaps.places_nearby(
-        location='40.732430, -73.886490', radius=40000, open_now=True, type=rec)
+        location=cords, radius=40000, open_now=True, type=rec)
     #data = json.dumps(places_result)
     data = json.dumps(places_result['results'])
     return data

@@ -24,7 +24,6 @@ const ContentItem = ({ item }) => (
                     <CardBody className="card-b">
 
                         <CardTitle className="card-t">
-                            {/* {<CardImg className="aa" top width="100%" src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + item.photos[0].photo_reference + "&key="}></CardImg>} */}
                             {item.name}
                         </CardTitle>
 
@@ -73,8 +72,6 @@ export class HubPage extends Component {
                 err => console.log(err)
             );
         }
-
-
     }
 
     /*  
@@ -86,7 +83,7 @@ export class HubPage extends Component {
     The funtion will return a json object
     */
     getPlaces = () => {
-        Axios.get(`http://localhost:9000/get-places?temperature=${this.state.temperature}&status=${this.state.description}`)
+        Axios.get(`http://localhost:9000/get-places?temperature=${this.state.temperature}&status=${this.state.description}&lat=${this.state.latitude}&lon=${this.state.longitude}`)
             .then(res => {
                 const response = res.data
                 this.setState({ 'items': response })
@@ -103,7 +100,7 @@ export class HubPage extends Component {
         const city = e.target.elements.city.value;
         const country = e.target.elements.country.value;
         //const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=imperial`);
-        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&appid=${API_KEY}`);
+        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&appid=${API_KEY}&units=imperial`);
         //convert response to json format
         const data = await api_call.json();
         if (city && country) {//only if these fields are filled then you return these
@@ -114,25 +111,22 @@ export class HubPage extends Component {
                 country: data.sys.country,
                 humidity: data.main.humidity,
                 description: data.weather[0].description,
-                weather_icon : data.weather[0].icon,
+                weather_icon: data.weather[0].icon,
                 error: undefined
             })
             this.getPlaces()
         }
         else {
             this.setState({
-                //describe state
-                //inital state of object
-                temperature: undefined,
-                city: undefined,
-                country: undefined,
-                humidity: undefined,
-                description: undefined,
-                weather_icon : undefined,
-                error: "Please enter values"
-
-
+                temperature: data.main.temp,
+                //city: data.name,
+                //country: data.sys.country,
+                //humidity: data.main.humidity,
+                description: data.weather[0].description,
+                weather_icon: data.weather[0].icon,
+                error: undefined
             })
+            this.getPlaces()
         }
 
     }
@@ -143,16 +137,16 @@ export class HubPage extends Component {
                     <Title />
                 </div>
                 <div className="col-xs-7 form-container">
-                  <Form getWeather={this.getWeather} />
-                  <Weather 
-                    temperature={this.state.temperature} 
-                    humidity={this.state.humidity}
-                    city={this.state.city}
-                    country={this.state.country}
-                    description={this.state.description}
-                    weather_icon = {this.state.weather_icon}
-                    error={this.state.error}
-                  />
+                    <Form getWeather={this.getWeather} />
+                    <Weather
+                        temperature={this.state.temperature}
+                        // humidity={this.state.humidity}
+                        // city={this.state.city}
+                        //country={this.state.country}
+                        description={this.state.description}
+                        weather_icon={this.state.weather_icon}
+                        error={this.state.error}
+                    />
                 </div>
 
                 <Container style={{ marginTop: 40 }}>
