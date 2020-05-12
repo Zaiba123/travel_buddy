@@ -25,6 +25,12 @@ export class Weather extends Component {
                     <span>{this.props.description}</span>
                     </p>
                 }
+                 {
+                 this.props.temperature && 
+                <p className="weather_key">  
+                    Image: <img className="weather_icon" src={`https://openweathermap.org/img/wn/${this.props.weather_icon}@2x.png`} />
+                </p> 
+        }
                 { 
                     this.props.error && <p className="weather__error">
                     <span>{this.props.error}</span>

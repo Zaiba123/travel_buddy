@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react';
 import { MdPlace } from 'react-icons/md';
 import { Image } from 'react-bootstrap';
 
+
 export default class MapContainer extends Component {
   state = {
     style: {

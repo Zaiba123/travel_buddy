@@ -51,7 +51,9 @@ export class HubPage extends Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: undefined
+        weather_icon : undefined,
+        error: undefined,
+        
     }
 
     //Calling the GooglePlaces function in the backend
@@ -80,6 +82,7 @@ export class HubPage extends Component {
                 country: data.sys.country,
                 humidity: data.main.humidity,
                 description: data.weather[0].description,
+                weather_icon : data.weather[0].icon,
                 error: undefined
             })
             this.getPlaces()
@@ -93,6 +96,7 @@ export class HubPage extends Component {
                 country: undefined,
                 humidity: undefined,
                 description: undefined,
+                weather_icon : undefined,
                 error: "Please enter values"
 
 
@@ -114,6 +118,7 @@ export class HubPage extends Component {
                     city={this.state.city}
                     country={this.state.country}
                     description={this.state.description}
+                    weather_icon = {this.state.weather_icon}
                     error={this.state.error}
                   />
                 </div>
