@@ -6,34 +6,34 @@ export class Weather extends Component {
             <div className="weather__info">
                 {
                     //all conditions have to be true for this to happen
-                    this.props.city && this.props.country  &&<p className="weather__key">Location: 
+                    this.props.city && this.props.country && <p className="weather__key">Location:
                     <span>{this.props.city} , {this.props.country}</span>
                     </p>
-               }
-                { 
-                    this.props.temperature && <p className="weather__key">Temperature: 
+                }
+                {
+                    this.props.temperature && <p className="weather__key">Temperature:
                     <span>{this.props.temperature}</span>
-                    </p> 
+                    </p>
                 }
-                { 
-                    this.props.humdity && <p className="weather__key">Humdity: 
+                {
+                    this.props.humdity && <p className="weather__key">Humdity:
                     <span>{this.props.humdity}</span>
-                    </p> 
+                    </p>
                 }
-                { 
-                    this.props.description && <p className="weather__key">Conditions: 
+                {
+                    this.props.description && <p className="weather__key">Conditions:
                     <span>{this.props.description}</span>
                     </p>
                 }
-                 {
+                {/* {
                  this.props.temperature && 
                 <p className="weather_key">  
                     Image: <img className="weather_icon" src={`https://openweathermap.org/img/wn/${this.props.weather_icon}@2x.png`} />
                 </p> 
-        }
-                { 
+        } */}
+                {
                     this.props.error && <p className="weather__error">
-                    <span>{this.props.error}</span>
+                        <span>{this.props.error}</span>
                     </p>
                 }
             </div>
