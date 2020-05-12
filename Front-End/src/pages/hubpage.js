@@ -106,32 +106,34 @@ export class HubPage extends Component {
         const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&appid=${API_KEY}`);
         //convert response to json format
         const data = await api_call.json();
-        // if (city && country) {//only if these fields are filled then you return these
-        // console.log(data);
-        this.setState({
-            temperature: data.main.temp,
-            //city: data.name,
-            //country: data.sys.country,
-            //humidity: data.main.humidity,
-            description: data.weather[0].description,
-            error: undefined
-        })
-        this.getPlaces()
-        //}
-        // else {
-        //     this.setState({
-        //         //describe state
-        //         //inital state of object
-        //         temperature: undefined,
-        //         city: undefined,
-        //         country: undefined,
-        //         humidity: undefined,
-        //         description: undefined,
-        //         error: "Please enter values"
+        if (city && country) {//only if these fields are filled then you return these
+            console.log(data);
+            this.setState({
+                temperature: data.main.temp,
+                city: data.name,
+                country: data.sys.country,
+                humidity: data.main.humidity,
+                description: data.weather[0].description,
+                weather_icon : data.weather[0].icon,
+                error: undefined
+            })
+            this.getPlaces()
+        }
+        else {
+            this.setState({
+                //describe state
+                //inital state of object
+                temperature: undefined,
+                city: undefined,
+                country: undefined,
+                humidity: undefined,
+                description: undefined,
+                weather_icon : undefined,
+                error: "Please enter values"
 
 
-        //     })
-        // }
+            })
+        }
 
     }
     render() {
@@ -141,16 +143,16 @@ export class HubPage extends Component {
                     <Title />
                 </div>
                 <div className="col-xs-7 form-container">
-                    <Form getWeather={this.getWeather} />
-                    <Weather
-                        temperature={this.state.temperature}
-                        humidity={this.state.humidity}
-                        city={this.state.city}
-                        country={this.state.country}
-                        description={this.state.description}
-                        error={this.state.error}
-
-                    />
+                  <Form getWeather={this.getWeather} />
+                  <Weather 
+                    temperature={this.state.temperature} 
+                    humidity={this.state.humidity}
+                    city={this.state.city}
+                    country={this.state.country}
+                    description={this.state.description}
+                    weather_icon = {this.state.weather_icon}
+                    error={this.state.error}
+                  />
                 </div>
 
                 <Container style={{ marginTop: 40 }}>
