@@ -159,6 +159,7 @@ bg-light {
   letter-spacing: 2px;
   line-height: 1.3;
   font-family: 'Roboto Slab', serif;
+  
 }
 .title-container__subtitle {
   font-size: 25px;
@@ -224,6 +225,9 @@ input[type="text"] {
   height: 90vh;
   padding-top: 100px;
   padding-left: 50px;
+}
+.recharts-legend-item-text{
+  -webkit-text-fill-color: white
 }
 
 .box{
