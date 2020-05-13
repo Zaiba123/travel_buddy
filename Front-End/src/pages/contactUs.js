@@ -10,7 +10,7 @@ import {
   Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
-const API_KEY = ""
+const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0"
 
 const ContentItem = ({ item }) => (
   <Col xs="12" sm="6" md="4">
@@ -20,13 +20,13 @@ const ContentItem = ({ item }) => (
 
           <CardBody className="card-b">
             <CardTitle className="card-t">
-            <p class="font-weight-bold">
-              {item.name}
+              <p class="font-weight-bold">
+                {item.name}
               </p>
             </CardTitle>
             <CardText className="card-n" >
               <p class="font-italic text-uppercase" Align="left" Hspace="100">
-              {item.types[0]}
+                {item.types[0]}
               </p>
             </CardText>
             <CardText className="card-n">
@@ -34,12 +34,12 @@ const ContentItem = ({ item }) => (
             </CardText>
             <CardText className="card-n">
               <p >
-           <img className="icon" src={item.icon} Align="left" Hspace="100" alt="image did not load" />
-           </p>
+                <img className="icon" src={item.icon} Align="left" Hspace="100" alt="image did not load" />
+              </p>
             </CardText>
           </CardBody>
         </Card>
-        
+
         <br />
         <br />
       </div>
@@ -50,22 +50,27 @@ const WeekCard = ({ item }) => (
   <Col md="3.5">
     <div >
       <Card className='card-c'>
-      <span class="border border-info">
+        <span class="border border-info">
 
-        <CardBody className="card-b">
-          <CardTitle className="card-t">
-            {item.name}
-          </CardTitle>
-          <CardText className="card-n">
-            {item.degrees} °F
+          <CardBody className="card-b">
+            <CardTitle className="card-t">
+              {item.name}
+            </CardTitle>
+            <CardText className="card-n">
+              {item.degrees} °F
             <br />
-            {item.description}
-            <br />
-          </CardText>
-        </CardBody>
+              {item.description}
+              <br />
+            </CardText>
+            <CardText className="card-n">
+              <p >
+                <img className="icon" src={'https://openweathermap.org/img/wn/' + item.icon + '@2x.png'} Align="center" Hspace="100" />
+              </p>
+            </CardText>
+          </CardBody>
         </span>
       </Card>
-      
+
     </div>
   </Col>
 )
@@ -126,9 +131,9 @@ export class ContactUsPage extends Component {
     Axios.get(`http://localhost:9000/get-places?temperature=${this.state.current_temperature}&status=${this.state.current_description}&lat=${this.state.latitude}&lon=${this.state.longitude}`)
       .then(res => {
         const response = res.data
-        this.setState({ 
-        items: response
-       })
+        this.setState({
+          items: response
+        })
         console.log(response);
       })
   }
@@ -141,7 +146,7 @@ export class ContactUsPage extends Component {
     this.setState({
       current_temperature: data.main.temp,
       current_description: data.weather[0].description,
-      icon:data.weather[0].icon,
+      icon: data.weather[0].icon,
       error: undefined
     })
     this.getPlaces()
@@ -165,8 +170,8 @@ export class ContactUsPage extends Component {
             icon={this.state.icon}
           />
           <LineChart
-            width={1200}
-            height={250}
+            width={1300}
+            height={390}
             data={this.state.degrees}
             margin={{
               top: 5, right: 30, left: 20, bottom: 5,
@@ -202,7 +207,7 @@ export class ContactUsPage extends Component {
                 {this.state.degrees.map(function (item, index) {
                   return (
                     <WeekCard item={item} key={index} />
-                    
+
                   )
                 })
                 }
