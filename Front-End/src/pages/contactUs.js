@@ -181,6 +181,8 @@ export class ContactUsPage extends Component {
             <YAxis stroke="#FFFFFF" />
             <Tooltip />
             <Legend wrapperStyle={{ backgroundColor: '#FFFFF' }} />
+            <br></br>
+            <br></br>
             <Line type="monotone" dataKey="degrees" stroke="#8884d8" activeDot={{ r: 8 }} />
             <Line type="monotone" dataKey="description" stroke="#8884d8" activeDot={{ r: 8 }} />
 

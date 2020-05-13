@@ -15,9 +15,15 @@ export default class Weathertwo extends Component {
                 {
                     this.props.icon &&
                     <p className="weather_key">
-                        <img className="weather_icon" src={`https://openweathermap.org/img/wn/02d@2x.png`} alt="image did not load" />
+                        <img className="weather_icon" src={'https://openweathermap.org/img/wn/' + this.props.icon + '@2x.png'} alt="image did not load" />
                     </p>
                 }
+                  {/* { THIS WORKS STATICALLY 
+                    this.props.icon &&
+                    <p className="weather_key">
+                        <img className="weather_icon" src={`https://openweathermap.org/img/wn/02d@2x.png`} alt="image did not load" />
+                    </p>
+                } */}
                 {/* {
             this.props.icon && 
                 <p className="weather_key">  
