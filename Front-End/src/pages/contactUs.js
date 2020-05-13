@@ -134,6 +134,7 @@ export class ContactUsPage extends Component {
     this.setState({
       current_temperature: data.main.temp,
       current_description: data.weather[0].description,
+      icon:data.weather[0].icon,
       error: undefined
     })
 
