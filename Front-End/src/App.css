@@ -176,7 +176,11 @@ bg-light {
   padding-top: 100px;
   padding-left: 50px;
 }
-
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
 .weather__info {
   font-size: 20px;
   font-weight: 200;
