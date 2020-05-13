@@ -4,8 +4,8 @@ export class Titletwo extends Component {
     render() {
         return (
             <div>
-                <h1 className="title-container__title">Weather Finder</h1>
-                <p className="title-container__subtitle">Find out weather forecast...</p>
+                <h1 className="title-container__title">How are you going to plan your day?</h1>
+                <p className="title-container__subtitle">Click to find out...</p>
             </div>
         )
     }

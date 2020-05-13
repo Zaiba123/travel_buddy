@@ -14,7 +14,7 @@ import {
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
 
-const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0"
+const API_KEY = ""
 
 const ContentItem = ({ item }) => (
 
@@ -33,10 +33,7 @@ const ContentItem = ({ item }) => (
             </CardText>
           </CardBody>
         </Card>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+     
 
       </div>
     </Container>
@@ -171,8 +168,8 @@ export class ContactUsPage extends Component {
             icon={this.state.icon}
           />
           <LineChart
-            width={1100}
-            height={300}
+            width={1200}
+            height={250}
             data={this.state.degrees}
 
             margin={{
