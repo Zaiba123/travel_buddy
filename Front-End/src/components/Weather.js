@@ -21,7 +21,7 @@ export class Weather extends Component {
                     </p>
                 }
                 {
-                    this.props.description && <p className="weather__key">Conditions:
+                    this.props.description && <p className="weather__key text-capitalize">Conditions:
                     <span>{this.props.description}</span>
                     </p>
                 }

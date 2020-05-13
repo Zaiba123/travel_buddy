@@ -186,6 +186,7 @@ bg-light {
   font-weight: 200;
   letter-spacing: 2px;
 }
+
 .weather__key {
   color: #82c5c5;
   border-bottom: solid 2px rgba(255,255,255,0.06);
@@ -254,6 +255,7 @@ a:hover + .box,.box:hover{
 .card-t{
   font-size: 20px;
   color: #2c3e5a;
+  
 }
 .card-n{
   font-size:15px;
@@ -270,6 +272,14 @@ a:hover + .box,.box:hover{
   position: relative;
   overflow: hidden;
   bottom-margin: 10px;
+
+}
+.card-z{
+  text-indent: 120px;
+
+}
+.card-r{
+  text-indent: 50px;
 
 }
 .card-deck{
