@@ -13,10 +13,11 @@ import { Container } from 'semantic-ui-react'
 const API_KEY = ""
 
 const ContentItem = ({ item }) => (
-  <Col xs="12" sm="6" md="4">
+  <Col  xs="12" sm="6" md="4">
     <Container style={{ marginTop: 10 }}>
       <div class="ui raised very padded text container segment">
-        <Card className='card-c'>
+        <Card  className='card-c'>
+        <span class="border border-info">
 
           <CardBody className="card-b">
             <CardTitle className="card-t">
@@ -24,20 +25,21 @@ const ContentItem = ({ item }) => (
               {item.name}
               </p>
             </CardTitle>
-            <CardText className="card-n" >
+            <CardText className="card-z" >
               <p class="font-italic text-uppercase" Align="left" Hspace="100">
               {item.types[0]}
               </p>
             </CardText>
-            <CardText className="card-n">
+            <CardText className="card-r">
               {item.vicinity}
             </CardText>
             <CardText className="card-n">
               <p >
-           <img className="icon" src={item.icon} Align="left" Hspace="100" alt="image did not load" />
+           <img className="icon" src={item.icon} Align="left" Hspace="120" alt="image did not load" />
            </p>
             </CardText>
           </CardBody>
+          </span>
         </Card>
         
         <br />
@@ -53,10 +55,10 @@ const WeekCard = ({ item }) => (
       <span class="border border-info">
 
         <CardBody className="card-b">
-          <CardTitle className="card-t">
+          <CardTitle className="card-t ">
             {item.name}
           </CardTitle>
-          <CardText className="card-n">
+          <CardText className="card-n text-capitalize">
             {item.degrees} °F
             <br />
             {item.description}
