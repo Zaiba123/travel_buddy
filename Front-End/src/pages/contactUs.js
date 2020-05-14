@@ -5,12 +5,12 @@ import Titletwo from "../components/Titletwo";
 import Formtwo from "../components/Formtwo";
 import Weathertwo from "../components/Weathertwo";
 import Weather from "../components/Weather";
-import 'bootstrap/dist/css/bootstrap.css';
+import '';
 import {
   Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
-const API_KEY = ""
+const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0"
 
 const ContentItem = ({ item }) => (
   <Col xs="12" sm="6" md="4">
@@ -174,8 +174,8 @@ export class ContactUsPage extends Component {
             icon={this.state.icon}
           />
           <LineChart
-            width={1200}
-            height={300}
+            width={1300}
+            height={390}
             data={this.state.degrees}
             margin={{
               top: 5, right: 30, left: 20, bottom: 5,
@@ -198,11 +198,10 @@ export class ContactUsPage extends Component {
           <br />
           <br />
           <br />
-          <br />
-          <br />
           <h1 class="ui header">
             <div class="content">
               Plan your Week! 📆
+              <div class="sub header">Don't Let The Weather Get You "Under The Weather"</div>
             </div>
           </h1>
           <Container>
@@ -232,9 +231,11 @@ export class ContactUsPage extends Component {
           <br />
           <br />
           <br />
+
           <h1 class="ui header">
             <div class="content">
               What's Around? 🍔
+              <div class="sub header">It's The Perfect Day To Try Some Of This Places</div>
             </div>
           </h1>
           <Container style={{ marginTop: 40 }}>
