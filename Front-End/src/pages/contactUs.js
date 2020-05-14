@@ -174,8 +174,8 @@ export class ContactUsPage extends Component {
             icon={this.state.icon}
           />
           <LineChart
-            width={1300}
-            height={390}
+            width={1200}
+            height={300}
             data={this.state.degrees}
             margin={{
               top: 5, right: 30, left: 20, bottom: 5,

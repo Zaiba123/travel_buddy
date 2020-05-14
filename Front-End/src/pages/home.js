@@ -180,7 +180,7 @@ export class IndexPage extends Component {
 											<Form.Control
 												type="text"
 												placeholder="State"
-												style={{ height: "30px", fontSize: "18px" }}
+												style={{ height: "30px", fontSize: "18px", color:"black" }}
 												name="address3"
 												{...getInputProps({
 													placeholder: "Search Places ...",
@@ -254,6 +254,7 @@ export class IndexPage extends Component {
 										<div className="d-flex flex-wrap">
 											{this.state.eventCategories[category].map(event => (
 												<div className="flex-grow-1 d-flex justify-content-center">
+													<span class="border border-info">
 													<Card style={{ width: "370px" }} className="mb-4">
 														<Card.Body>
 															<Card.Title
@@ -268,7 +269,9 @@ export class IndexPage extends Component {
 																	event.entities[0].formatted_address}
 															</Card.Subtitle>
 														</Card.Body>
+													
 													</Card>
+													</span>
 												</div>
 											))}
 										</div>
