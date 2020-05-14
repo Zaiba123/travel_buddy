@@ -3,14 +3,13 @@ import React, { Component } from 'react'
 export class Formtwo extends Component {
     render() {
         return (
-           <form onSubmit={this.props.getWeather}>
-               {/* <input className="inputt" type="text" name="latitude" placeholder="Lat..."></input>
+            <form onSubmit={this.props.getWeather}>
+                {/* <input className="inputt" type="text" name="latitude" placeholder="Lat..."></input>
                <input className="inputt" type="text" name="longitude" placeholder="Lon..."></input> */}
-               <button >Get Weather</button>
-           </form>
+                <button variant="info" >Get Weather</button>
+            </form>
         )
     }
 }
 
 export default Formtwo
- 
