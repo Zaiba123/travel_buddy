@@ -3,34 +3,27 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { MdPlace } from 'react-icons/md';
 import { Image } from 'react-bootstrap';
-
-
 export default class MapContainer extends Component {
   state = {
     style: {
       maxWidth: '1200px',
     }
   };
-  
   map = null;
   maps = null;
-  
   apiIsLoaded = ({ map, maps }) => {
     this.map = map;
     this.maps = maps;
   };
-  
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.destCoords.lat && this.props.destCoords.lat) {
       this.updateMapDirections();
     }
   }
-  
   updateMapDirections() {
     if (this.maps && this.map) {
       const directionsService = new this.maps.DirectionsService();
       const directionsDisplay = new this.maps.DirectionsRenderer();
-  
       directionsService.route({
         origin: `${this.props.centerCoords.lat},${this.props.centerCoords.lng}`,
         destination: `${this.props.destCoords.lat},${this.props.destCoords.lng}`,
@@ -51,24 +44,23 @@ export default class MapContainer extends Component {
       });
     }
   }
-  
   render() {
     return (
-      <div  style={{ height: 'calc(100vh - 118px)', width: '100%' }}>
+      <div style={{ height: 'calc(100vh - 118px)', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyDMda7TV57EnsuSh4pu49UqhoHUKzaPNvc' }}
-          defaultCenter={{lat: this.props.centerCoords.lat, lng: this.props.centerCoords.lng}}
-          center={{lat: this.props.centerCoords.lat, lng: this.props.centerCoords.lng}}
+          defaultCenter={{ lat: this.props.centerCoords.lat, lng: this.props.centerCoords.lng }}
+          center={{ lat: this.props.centerCoords.lat, lng: this.props.centerCoords.lng }}
           defaultZoom={11}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={this.apiIsLoaded} >
-          <Marker id={1} lat={this.props.centerCoords.lat} lng={this.props.centerCoords.lng}/>
+          <Marker id={1} lat={this.props.centerCoords.lat} lng={this.props.centerCoords.lng} />
           {this.props.destCoords.lat && (
-            <Marker id={2} lat={this.props.destCoords.lat} lng={this.props.destCoords.lng}/>
-            )}
+            <Marker id={2} lat={this.props.destCoords.lat} lng={this.props.destCoords.lng} />
+          )}
           {this.props.venueCoords && this.props.venueCoords.length > 0 && (
             this.props.venueCoords.map((coords, index) => (
-              <Marker id={2 + index} lat={coords.lat} lng={coords.lng} description={this.props.events[index].title}/>
+              <Marker id={2 + index} lat={coords.lat} lng={coords.lng} description={this.props.events[index].title} />
             ))
           )}
         </GoogleMapReact>
@@ -85,8 +77,6 @@ export default class MapContainer extends Component {
     );
   }
 }
-
-
 class Marker extends Component {
   state = {
     isDetailVisible: false
@@ -96,11 +86,10 @@ class Marker extends Component {
       isDetailVisible: visible,
     });
   };
-  
   render() {
     return (
       <div className='markerContainer'>
-        <MdPlace text='Office' size='4em' className='md-place' onMouseEnter={() => this.handleHover(true)} onMouseLeave={() => this.handleHover(false)}/>
+        <MdPlace text='Office' size='4em' className='md-place' onMouseEnter={() => this.handleHover(true)} onMouseLeave={() => this.handleHover(false)} />
         {this.state.isDetailVisible && this.props.description && (
           <div className='popup-thingy'>
             <div className='d-flex flex-row align-items-center'>

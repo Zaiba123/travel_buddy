@@ -10,7 +10,7 @@ import {
   Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
 import { Container } from 'semantic-ui-react'
-const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0"
+const API_KEY = ""
 
 const ContentItem = ({ item }) => (
   <Col xs="12" sm="6" md="4">

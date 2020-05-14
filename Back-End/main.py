@@ -6,23 +6,8 @@ import pprint
 import time
 import json
 
-GOOGLE_PLACES_KEY = 'AIzaSyDMda7TV57EnsuSh4pu49UqhoHUKzaPNvc'
-GOOGLE_CLIENT_ID = '1008790135767-v0eopbt6hsdplugq49j0c7940ocq63i8.apps.googleusercontent.com'
-FIXER_API_KEY = '0ee35b948a4b30beeb47ce658ecd5ad9'
-PREDICT_HQ_API_ID = 'ttjizU4FjGA'
-PREDICT_HQ_API_SECRET = 'SjzUMXipT3_fAQQXxxm9FqR0ZHwCktB3vKEWxzOuqSUJsNPDWEZD2w'
-PREDICT_HQ_API_ACCESS_TOKEN = 'paKVbqgAbto9AX-R11fXhp9-UI3IG3SYPW1ZzfuB'
-WEATHER_STACK_API_KEY = '79ec836e718dc90704afaeb995b633ee'
-
 app = Flask(__name__)
 CORS(app)
-
-
-@app.route("/")
-def index():
-    return 'hi'
-
-
 @app.route("/get-coords")
 def getCoords():
     address = request.args['address']
@@ -49,7 +34,7 @@ def getEvents():
                                 'Authorization': 'Bearer ' + PREDICT_HQ_API_ACCESS_TOKEN})
     else:
         response = requests.get('https://api.predicthq.com/v1/events?location_around.origin=' +
-                                origin, headers={'Authorization': 'Bearer ' + PREDICT_HQ_API_ACCESS_TOKEN})
+                                origin + "&limit=200", headers={'Authorization': 'Bearer ' + PREDICT_HQ_API_ACCESS_TOKEN})
     return response.text
 
 
@@ -91,9 +76,7 @@ def getplaces():
     latitude = request.args.get("lat")
     longitude = request.args.get("lon")
     cords = latitude+' , '+longitude
-
     print(temperature)
-
     if weather == 'thunderstorm' or 'snow' or 'shower rain':
         rec = 'bar||restaurant||cafe'
     elif temperature > 75 and weather == 'clear sky':
