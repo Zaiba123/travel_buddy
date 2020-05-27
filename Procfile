@@ -1,1 +1,1 @@
-web: Back-End/main.py
+web: gunicorn main:travel_buddy
