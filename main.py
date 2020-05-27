@@ -18,7 +18,7 @@ PREDICT_HQ_API_ACCESS_TOKEN = os.getenv('PREDICT_HQ_API_ACCESS')
 WEATHER_STACK_API_KEY = os.getenv('WEATHER_STACK_API')
 
 app = Flask(__name__.split('.')[
-            0], static_folder='../Front-End/build/static', template_folder="../Front-End/build")
+            0], static_folder='../client/build/static', template_folder="../Front-End/build")
 CORS(app)
 @app.route("/get-coords")
 def getCoords():
