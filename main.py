@@ -111,8 +111,3 @@ def setPlaces():
     temp = request.json
     print(temp)
     return temp
-
-
-if __name__ == '__main__':
-    from werkzeug.serving import run_simple
-    run_simple('localhost', 9000, app)
