@@ -17,7 +17,7 @@ PREDICT_HQ_API_SECRET = os.getenv('PREDICT_HQ_API_S')
 PREDICT_HQ_API_ACCESS_TOKEN = os.getenv('PREDICT_HQ_API_ACCESS')
 WEATHER_STACK_API_KEY = os.getenv('WEATHER_STACK_API')
 
-app = Flask(__name__, static_folder="../build", static_url_path="/")
+app = Flask(__name__, static_folder="..Front-End/build", static_url_path="/")
 
 CORS(app)
 @app.route("/")
