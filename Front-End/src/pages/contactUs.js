@@ -5,12 +5,14 @@ import Titletwo from "../components/Titletwo";
 import Formtwo from "../components/Formtwo";
 import Weathertwo from "../components/Weathertwo";
 import Weather from "../components/Weather";
-import '';
+import 'bootstrap/dist/css/bootstrap.css';
 import {
   Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
+import dotenv from 'dotenv'
 import { Container } from 'semantic-ui-react'
-const API_KEY = "dd018e7b473f40c8ef87d5f6de0156d0"
+const API_KEY = process.env.REACT_APP_WEATHER_KEY
+
 
 const ContentItem = ({ item }) => (
   <Col xs="12" sm="6" md="4">
@@ -235,7 +237,7 @@ export class ContactUsPage extends Component {
           <h1 class="ui header">
             <div class="content">
               What's Around? 🍔
-              <div class="sub header">It's The Perfect Day To Try Some Of This Places</div>
+              <div class="sub header">It's The Perfect Day To Try Some Of These Places</div>
             </div>
           </h1>
           <Container style={{ marginTop: 40 }}>

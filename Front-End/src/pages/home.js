@@ -180,7 +180,7 @@ export class IndexPage extends Component {
 											<Form.Control
 												type="text"
 												placeholder="State"
-												style={{ height: "30px", fontSize: "18px", color:"black" }}
+												style={{ height: "30px", fontSize: "18px", color: "black" }}
 												name="address3"
 												{...getInputProps({
 													placeholder: "Search Places ...",
@@ -255,22 +255,22 @@ export class IndexPage extends Component {
 											{this.state.eventCategories[category].map(event => (
 												<div className="flex-grow-1 d-flex justify-content-center">
 													<span class="border border-info">
-													<Card style={{ width: "370px" }} className="mb-4">
-														<Card.Body>
-															<Card.Title
-																as={Link}
-																to={`/event/${event.id}`}
-																className="h5"
-															>
-																{event.title}
-															</Card.Title>
-															<Card.Subtitle className="my-2 text-muted">
-																{event.entities.length > 0 &&
-																	event.entities[0].formatted_address}
-															</Card.Subtitle>
-														</Card.Body>
-													
-													</Card>
+														<Card style={{ width: "370px" }} className="mb-4">
+															<Card.Body>
+																<Card.Title
+																	as={Link}
+																	to={`/event/${event.id}`}
+																	className="h5"
+																>
+																	{event.title}
+																</Card.Title>
+																<Card.Subtitle className="my-2 text-muted">
+																	{event.entities.length > 0 &&
+																		event.entities[0].formatted_address}
+																</Card.Subtitle>
+															</Card.Body>
+
+														</Card>
 													</span>
 												</div>
 											))}

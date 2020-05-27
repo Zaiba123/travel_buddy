@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import {IndexPage, CurrencyExchangePage, ContactUsPage, AboutPage, HubPage} from './pages';
-import {geolocated} from "react-geolocated";
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { IndexPage, CurrencyExchangePage, ContactUsPage, AboutPage, HubPage } from './pages';
+import { geolocated } from "react-geolocated";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {DefaultLayout} from './layouts';
+import { DefaultLayout } from './layouts';
 
 
 
 class App extends React.Component {
-  
+
   render() {
     return (
       <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
@@ -18,23 +18,23 @@ class App extends React.Component {
           <Switch>
             <Route
               path='/currency-exchange' strict
-              render={ props => <CurrencyExchangePage currLocation={this.props} /> }
+              render={props => <CurrencyExchangePage currLocation={this.props} />}
             />
             <Route
               path='/contact-us' strict
-              render={ props => <ContactUsPage /> }
+              render={props => <ContactUsPage />}
             />
             <Route
               path='/about-us' strict
-              render={ props => <AboutPage /> }
+              render={props => <AboutPage />}
             />
-             <Route
+            <Route
               path='/hub-page' strict
-              render={ props => <HubPage /> }
+              render={props => <HubPage />}
             />
             <Route
               path='/' strict
-              render={ props =>
+              render={props =>
                 !this.props.isGeolocationAvailable ? (
                   <div>Your browser does not support Geolocation</div>
                 ) : !this.props.isGeolocationEnabled ? (
@@ -42,15 +42,15 @@ class App extends React.Component {
                 ) : this.props.coords ? (
                   <IndexPage currLocation={this.props} />
                 ) : (
-                    <div>Getting the location data&hellip; </div>
-                  )
+                        <div>Getting the location data&hellip; </div>
+                      )
               }
             />
           </Switch>
         </div>
       </BrowserRouter>
     );
-    
+
   }
 }
 
