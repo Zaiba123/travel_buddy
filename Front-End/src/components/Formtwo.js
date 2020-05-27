@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from 'reactstrap'
-import { button } from 'semantic-ui-react'
+
 export class Formtwo extends Component {
     render() {
         return (

@@ -5,7 +5,17 @@ import googlemaps
 import pprint
 import time
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
+GOOGLE_PLACES_KEY = os.getenv('GOOGLE_PLACES')
+GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT')
+FIXER_API_KEY = os.getenv('FIXER_API')
+PREDICT_HQ_API_ID = os.getenv('PREDICT_HQ_API')
+PREDICT_HQ_API_SECRET = os.getenv('PREDICT_HQ_API_S')
+PREDICT_HQ_API_ACCESS_TOKEN = os.getenv('PREDICT_HQ_API_ACCESS')
+WEATHER_STACK_API_KEY = os.getenv('WEATHER_STACK_API')
 
 app = Flask(__name__)
 CORS(app)
