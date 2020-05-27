@@ -134,7 +134,7 @@ export class ContactUsPage extends Component {
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////////////
   getPlaces = () => {
-    Axios.get(`http://localhost:9000/get-places?temperature=${this.state.current_temperature}&status=${this.state.current_description}&lat=${this.state.latitude}&lon=${this.state.longitude}`)
+    Axios.get(`/get-places?temperature=${this.state.current_temperature}&status=${this.state.current_description}&lat=${this.state.latitude}&lon=${this.state.longitude}`)
       .then(res => {
         const response = res.data
         this.setState({

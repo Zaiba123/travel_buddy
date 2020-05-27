@@ -60,7 +60,7 @@ export class IndexPage extends Component {
 		});
 
 		let response = await axios.get(
-			"http://localhost:9000/get-coords",
+			"/get-coords",
 			httpOptions
 		);
 		if (response.data.results && response.data.results.length > 0) {
@@ -79,7 +79,7 @@ export class IndexPage extends Component {
 			});
 
 			response = await axios.get(
-				"http://localhost:9000/get-distance",
+				"/get-distance",
 				httpOptions
 			);
 
@@ -111,7 +111,7 @@ export class IndexPage extends Component {
 			});
 
 			response = await axios.get(
-				"http://localhost:9000/get-events",
+				"/get-events",
 				httpOptions
 			);
 
@@ -144,7 +144,7 @@ export class IndexPage extends Component {
 			});
 
 			response = await axios.get(
-				"http://localhost:9000/get-weather",
+				"/get-weather",
 				httpOptions
 			);
 			const weather = response.data.current;

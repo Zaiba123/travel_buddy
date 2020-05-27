@@ -83,7 +83,7 @@ export class HubPage extends Component {
     The funtion will return a json object
     */
     getPlaces = () => {
-        Axios.get(`http://localhost:9000/get-places?temperature=${this.state.temperature}&status=${this.state.description}&lat=${this.state.latitude}&lon=${this.state.longitude}`)
+        Axios.get(`/get-places?temperature=${this.state.temperature}&status=${this.state.description}&lat=${this.state.latitude}&lon=${this.state.longitude}`)
             .then(res => {
                 const response = res.data
                 this.setState({ 'items': response })
