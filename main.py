@@ -17,9 +17,14 @@ PREDICT_HQ_API_SECRET = os.getenv('PREDICT_HQ_API_S')
 PREDICT_HQ_API_ACCESS_TOKEN = os.getenv('PREDICT_HQ_API_ACCESS')
 WEATHER_STACK_API_KEY = os.getenv('WEATHER_STACK_API')
 
-app = Flask(__name__.split('.')[
-            0], static_folder='../client/build/static', template_folder="../Front-End/build")
+app = Flask(__name__, static_folder="../build", static_url_path="/")
+
 CORS(app)
+@app.route("/")
+def index():
+    return app.send_static_file('index.html')
+
+
 @app.route("/get-coords")
 def getCoords():
     address = request.args['address']
